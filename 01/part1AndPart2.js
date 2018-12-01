@@ -1,7 +1,7 @@
 const fs = require("fs");
 const assert = require("assert");
 
-function safeReadFileIntoNumbers(path) {
+function reasonableReadFileIntoNumbers(path) {
   return fs
     .readFileSync(path, { encoding: "utf-8" })
     .toString()
@@ -34,8 +34,8 @@ function solvePart2(originalNumbers) {
   return currentFrequency;
 }
 
-const actualFile = safeReadFileIntoNumbers("./01/data");
-const testFile = safeReadFileIntoNumbers("./01/testFile");
+const actualFile = reasonableReadFileIntoNumbers("./01/data");
+const testFile = reasonableReadFileIntoNumbers("./01/testFile");
 
 assert(
   solvePart1(testFile) == 4,
