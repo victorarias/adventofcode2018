@@ -35,7 +35,7 @@ function solvePart2(originalNumbers) {
 }
 
 const actualFile = reasonableReadFileIntoNumbers("./01/data");
-const testFile = reasonableReadFileIntoNumbers("./01/testFile");
+const testFile = reasonableReadFileIntoNumbers("./01/testData");
 
 assert(
   solvePart1(testFile) == 4,
