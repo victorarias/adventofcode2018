@@ -1,3 +1,4 @@
+import itertools
 from collections import Counter
 
 with open("02/data") as f:
@@ -37,24 +38,12 @@ def detectCorrectId(str1, str2):
         return "".join(without_differences)
 
 def solvePart2(lines):
-    i = 0
-    j = 1
+    combinations = itertools.combinations(lines, 2)
 
-    while i < len(lines):
-        while j < len(lines):
-            if (i == j):
-                j += 1
-                continue
-
-            correctId = detectCorrectId(lines[i].strip(), lines[j].strip())
-            if (correctId):
-                return correctId
-            else:
-                j += 1
-        i += 1
-        j = 0
-
-    return None
+    for (line_a, line_b) in combinations:
+        correctId = detectCorrectId(line_a.strip(), line_b.strip())
+        if (correctId):
+            return correctId
 
 assertEquals(solvePart2(test2_lines), "fgij")
 print(solvePart2(official_lines))
